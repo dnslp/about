@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tablink {
+            background-color: #ddd;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tablink:hover {
+            background-color: #bbb;
+        }
+
+        .tablink.active {
+            background-color: #bbb;
+        }
+
+        .tabcontent {
+            display: none;
+        }
+
+        .tabcontent h2 {
+            text-align: center;
+        }
+
+        .tabcontent p,
+        .tabcontent ul {
+            text-align: left;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Name</h1>
+        <p>Phone: (123) 456-7890 | Email: yourname@example.com</p>
+
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'Education')" id="defaultOpen">Education</button>
+            <button class="tablink" onclick="openTab(event, 'Employment')">Employment</button>
+            <button class="tablink" onclick="openTab(event, 'Skills')">Skills</button>
+        </div>
+
+        <div id="Education" class="tabcontent">
+            <h2>Education</h2>
+            <p><strong>Master of Science in Speech-Language Pathology</strong><br>University Name, City, State<br>Graduation Date: Month, Year</p>
+            <p><strong>Bachelor of Science in [Your Major]</strong><br>University Name, City, State<br>Graduation Date: Month, Year</p>
+        </div>
+
+        <div id="Employment" class="tabcontent">
+            <h2>Employment</h2>
+            <p><strong>Graduate Clinician</strong><br>Facility/School/Clinic Name, City, State<br>Dates: Month, Year – Month, Year</p>
+            <ul>
+                <li>Conducted assessments and evaluations for a diverse pediatric population.</li>
+                <li>Developed and implemented individualized treatment plans.</li>
+                <li>Collaborated with multidisciplinary teams to support patient care.</li>
+                <li>Provided therapy for speech, language, and swallowing disorders.</li>
+                <li>Documented patient progress and adjusted treatment plans as necessary.</li>
+            </ul>
+        </div>
+
+        <div id="Skills" class="tabcontent">
+            <h2>Skills</h2>
+            <ul>
+                <li>Proficient in speech and language assessment tools (e.g., CELF-5, GFTA-3)</li>
+                <li>Experience with augmentative and alternative communication (AAC) devices</li>
+                <li>Knowledge of evidence-based therapy techniques</li>
+                <li>Strong communication and interpersonal skills</li>
+                <li>Empathy and patience with clients</li>
+                <li>Excellent organizational and time-management abilities</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablink" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>
